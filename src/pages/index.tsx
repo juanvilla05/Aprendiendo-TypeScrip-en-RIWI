@@ -1,115 +1,57 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// iniciamos el index haciendo todas impoprtaciones necesarias para la funcionalidad requerida ejemplo(hooks, funciones, interfaces, arrays, componentes)
+// iniciamos importando hooks y componentes siempre con {}
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+//importranmos los arrays [] listas
+import { users } from "@/utils/usuario";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// esta fubcion es el componente (Login)
+export default function Login() {
+  // le ponemos el nombre a la funcion relacionada con los que estmos creando
+  // toda la logica va antes del return y dentro de la funcion como buena practica
+  // Aqui vamos a crear la variable con la que vamos a controlar los estados y a utilizar el hook useState recuerda despues de const []
+  const [usuario, setUsuario] = useState("pablo"); // se crea usuario y setUsuarios, para entender que uno tiene el valor con el que iniciamos y el otro recibe el ingresado en el input
+  const [password, setPassword] = useState("jimenez");
+  console.log(usuario);
+  console.log(password);
 
-export default function Home() {
+  // creamos una funcion flecha como esta estructura para capturar el usuario y password del input
+  const manejoUsuario =(evento: React.ChangeEvent<HTMLInputElement>)=> { // pedir explicacion de este tipado
+    setUsuario(evento.target.value)    
+  }
+  const manejoPassword = (evento: React.ChangeEvent<HTMLInputElement>) =>{
+    setPassword(evento.target.value)
+  }
+  // vamos a crear la variable con .find para buscar dentro del array los elementos que necesito comparar
+  const validacion = ()=>{
+    const usuarioEncontrado = users.find((persona)=> persona.name == usuario && persona.password == password)
+    console.log(usuarioEncontrado)
+
+    // trabajo en casa, condicional: (si, entonces)
+    if (usuarioEncontrado) {
+      alert (`Bienvenido ${usuarioEncontrado.name}`)
+      // router es un hook, push es el metodo de ese hook 
+      router.push("/dashboard"); // se crea una carpeta dashboard dentro de (pages) y luego un index dentro de esta, ahi es donde creamos la logica de la ruta, copn el snniper rfc e importamos el hook router
+      }
+      else{
+        // si no
+        alert('Usuario o contraseña invalidos');
+      }
+  }
+
+  const router = useRouter(); // ahora creamos la variable para la ruta, recuerda que los hooks los llamamos con ()
+  console.log(router);
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <h1> My app </h1>
+      <h3> ingrese usuario y contraseña</h3>
+      {/* //labeles para colocar un texto antes de un input */}
+      <label> Ingresa tu usuario </label>
+      <input type="text" onChange={manejoUsuario}/>
+      <label> Ingrese contreseña</label>
+      <input type="password" onChange={manejoPassword} />
+      <button onClick={validacion}> Ingresar </button>
+    </>
   );
 }
