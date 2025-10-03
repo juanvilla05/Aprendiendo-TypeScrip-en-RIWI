@@ -1,0 +1,29 @@
+import { toast } from "react-toastify";
+
+
+export const notificacion = (text:string, type:"error"|"success", tiempo?:number)=>{
+if (type === "success" ){
+    toast.success(text, {
+        position: "bottom-center",
+        autoClose: tiempo || 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+}
+
+if (type === "error"){
+    toast.error(text, {
+        position: "bottom-center",
+        autoClose: tiempo || 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+}}

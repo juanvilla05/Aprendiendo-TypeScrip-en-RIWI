@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f4f8;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h1 {
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #555555;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  color: #333333;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px; /* Más espacio para hacerlo simétrico */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #007bff; /* Azul vibrante */
+  color: #ffffff; /* Texto blanco */
+  border: none; /* Sin borde */
+  font-size: 1rem; /* Tamaño de fuente legible */
+  font-weight: bold; /* Texto en negrita */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de profundidad */
+  transition: all 0.3s ease; /* Transición suave para efectos */
+
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  transform: translateY(-2px); /* Efecto de "levantar" el botón */
+
+}
+
+button:active {
+  background-color: #004494; /* Azul aún más oscuro al hacer clic */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
+  transform: translateY(0); /* Botón vuelve a su posición original */
+
+}
+
+.MiButton {
+  margin-top: 1rem;
+}
+
+.ToastContainer {
+  margin-top: 1rem;
+}

@@ -1,0 +1,90 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  /* Variantes de estilo */
+  .primary {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+  }
+  
+  .outline {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  .danger {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+  
+  /* Tamaños */
+  .sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .md {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+  }
+  
+  /* Estados */
+  .disable {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .loading {
+    cursor: wait;
+  }
+  
+  /* Spinner para estado de carga */
+  .spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .text {
+    white-space: nowrap;
+  }

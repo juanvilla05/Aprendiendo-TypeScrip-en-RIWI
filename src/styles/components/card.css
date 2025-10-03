@@ -1,0 +1,57 @@
+.card {
+  width: 300px;
+  height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* Header con el título y badge */
+  .card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Imagen */
+  .card__image {
+    width: 50%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+  
+  /* Footer */
+  .card__footer {
+    margin-top: auto;
+  }
+  
+  
+  .card--green {
+    background-color: #ecfdf5; /* verde muy claro */
+    border: 1px solid #34d399;
+    color: #065f46;
+  }
+  
+  .card--white {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+  }
+  
+  .card--black {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    color: #f9fafb;
+  }
+  

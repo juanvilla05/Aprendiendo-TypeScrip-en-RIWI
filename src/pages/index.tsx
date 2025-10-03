@@ -2,9 +2,13 @@
 // iniciamos importando hooks y componentes siempre con {}
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { ToastContainer, } from 'react-toastify'
+import { MiButton } from "@/componentes/button/button"; // aqui importaos el componente Mibutton para utilizarlo 
 
 //importranmos los arrays [] listas
 import { users } from "@/utils/usuario";
+import { notificacion } from "@/helpers/utils";
+
 
 // esta fubcion es el componente (Login)
 export default function Login() {
@@ -27,31 +31,53 @@ export default function Login() {
   const validacion = ()=>{
     const usuarioEncontrado = users.find((persona)=> persona.name == usuario && persona.password == password)
     console.log(usuarioEncontrado)
-
+    
     // trabajo en casa, condicional: (si, entonces)
     if (usuarioEncontrado) {
-      alert (`Bienvenido ${usuarioEncontrado.name}`)
+      notificacion("usuario encontrado","success",2000)
+      window.setTimeout (()=>{
+        
+        router.push("/dashboard"); // se crea una carpeta dashboard dentro de (pages) y luego un index dentro de esta, ahi es donde creamos la logica de la ruta, copn el snniper rfc e importamos el hook router
+      },(2500))
       // router es un hook, push es el metodo de ese hook 
-      router.push("/dashboard"); // se crea una carpeta dashboard dentro de (pages) y luego un index dentro de esta, ahi es donde creamos la logica de la ruta, copn el snniper rfc e importamos el hook router
       }
       else{
         // si no
-        alert('Usuario o contraseña invalidos');
+      notificacion ("usuario o clave no coinciden", "error",2000)
       }
   }
+  
+
 
   const router = useRouter(); // ahora creamos la variable para la ruta, recuerda que los hooks los llamamos con ()
   console.log(router);
   return (
     <>
-      <h1> My app </h1>
-      <h3> ingrese usuario y contraseña</h3>
+    <div className="container">
+      <div className="card">
+      <label htmlFor="">
+      <h1> Bienvenido a My App </h1>
+      <h3> Registrate</h3>
+      </label>
       {/* //labeles para colocar un texto antes de un input */}
       <label> Ingresa tu usuario </label>
       <input type="text" onChange={manejoUsuario}/>
       <label> Ingrese contreseña</label>
       <input type="password" onChange={manejoPassword} />
-      <button onClick={validacion}> Ingresar </button>
+      
+
+      <MiButton
+       text="Ingresar"
+       click={validacion}
+       variant="secondary"
+       size="md"
+       />
+       
+      <ToastContainer />
+
+      </div>
+    </div>
+
     </>
   );
 }
