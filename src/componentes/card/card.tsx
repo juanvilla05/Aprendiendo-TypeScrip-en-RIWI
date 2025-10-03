@@ -17,6 +17,7 @@ export const Card = ({titulo,imagenUrl,footer,type,label,status,titleBadge,icon,
   
   return (
       <>
+    
          <div className={`card card--${type}`}>
                 <MiBadge
                     label={label}
