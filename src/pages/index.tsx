@@ -8,6 +8,7 @@ import { MiButton } from "@/componentes/button/button"; // aqui importaos el com
 //importranmos los arrays [] listas
 import { users } from "@/utils/usuario";
 import { notificacion } from "@/helpers/utils";
+import { Card } from "@/componentes/card/card";
 
 
 // esta fubcion es el componente (Login)
@@ -67,10 +68,13 @@ export default function Login() {
       
 
       <MiButton
-       text="Ingresar"
+       textButton="Ingresar"
        click={validacion}
        variant="secondary"
        size="md"
+       />
+       <Card
+       titulo="ghghg"
        />
        
       <ToastContainer />

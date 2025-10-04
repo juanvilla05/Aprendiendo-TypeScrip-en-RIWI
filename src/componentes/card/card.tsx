@@ -7,13 +7,16 @@ import MiBadge, { BadgeProps } from '../Badge/badge';
 
 interface CardProps extends BadgeProps, MiButtonProps {
     titulo:string, // titulo principal
-    imagenUrl?: React.ReactNode
+    imagenUrl?: string,
     type: "green" | "white" | "black"
     footer?:string,
+
+    funcion1:()=>void,
+    funcion2:()=>void
   }
 // recordemos que los props siempre se pasan como parametros del componente, los destructuramos dentro de llaves
 // los tipamos con el nombre de la interface que hemos creado
-export const Card = ({titulo,imagenUrl,footer,type,label,status,titleBadge,icon,variant,size,disable,loading,click,leftIcon,rightIcon,textButton}:CardProps) => {
+export const Card = ({titulo,imagenUrl='',footer,type,label,status,titleBadge,icon,funcion1,funcion2}:CardProps) => {
   
   return (
       <>
@@ -25,17 +28,24 @@ export const Card = ({titulo,imagenUrl,footer,type,label,status,titleBadge,icon,
                     icon={icon}
                     titleBadge={titleBadge}
                 />{titulo}
-                {/* <Image
-                    src= {imagenUrl}
-                    width={70}
-                    height={70}
-                    alt="Picture of the author"
-                    /> */}
+                <Image
+                src={imagenUrl}
+                alt={titulo}
+                />
                 <MiButton
-                    textButton={textButton}
-                    click={click}
+                    leftIcon ='⚙️'
+                    textButton='Editar'
+                    click={funcion1}
+                />
+                <MiButton
+                leftIcon ='🛢️'
+                textButton='Eliminar'
+                click={funcion2}
+                
+                
                 />
                 {footer}
+        </div>
     </>
 )
 };
