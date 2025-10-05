@@ -9,6 +9,7 @@ import { MiButton } from "@/componentes/button/button"; // aqui importaos el com
 import { users } from "@/utils/usuario";
 import { notificacion } from "@/helpers/utils";
 import { Card } from "@/componentes/card/card";
+import { getProperties } from "@/services/properties";
 
 
 // esta fubcion es el componente (Login)
@@ -73,9 +74,9 @@ export default function Login() {
        variant="secondary"
        size="md"
        />
-       <Card
-       titulo="ghghg"
-       />
+       <MiButton
+       textButton="prubea"
+       click={()=>getProperties()}/>
        
       <ToastContainer />
 
