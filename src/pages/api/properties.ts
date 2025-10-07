@@ -4,10 +4,6 @@ import Properties from "@/database/models/properties"; // esquema
 import dbConnection from "@/lib/database_mongo";// conexion
 import type { NextApiRequest, NextApiResponse } from "next"; // siempre hay que imoportarlo cuando vamos a crear la api en next
 
-type Data = {
-    name: string;
-};
-
 
 export interface Property {
     _id: string;
