@@ -19,7 +19,8 @@ const FormularioUsuario: React.FC = () => {
 
 const [errores,setErrores] = useState<string[]> ([]);// [] para meter las respuesta string en arreglo
  
-// Manejar los cambios del formulario
+// Manejar los cambios del formulario...
+
 // Declaras una función llamada handleChange que recibe un evento de cambio
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
