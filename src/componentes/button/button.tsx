@@ -8,7 +8,7 @@ export interface MiButtonProps{
     click?: ()=>void; // acción al hacer click, y asi se tipan las props que reciben funciones
     leftIcon?: React.ReactNode; //ícono opcional antes del texto.
     rightIcon?: React.ReactNode; // ícono opcional después del texto.
-    textButton:string;
+    textButton?:string;
 };
 
 // no se puede tipar adentro del objeto, se hace por fuera del objeto con una interface que finalmente es con la que tipamos

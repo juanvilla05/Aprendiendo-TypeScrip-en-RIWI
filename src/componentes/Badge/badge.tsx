@@ -3,7 +3,7 @@ export interface BadgeProps {
     label:string; // texto del badge.
     status?:"succes"|"warning"|"info"|"error"|"neutral"; // define color y estilo (default: "neutral").
     icon?: React.ReactNode; //ícono opcional.
-    titleBadge: string; // texto para tooltip o accesibilidad.
+    titleBadge?: string; // texto para tooltip o accesibilidad.
 };
 
 

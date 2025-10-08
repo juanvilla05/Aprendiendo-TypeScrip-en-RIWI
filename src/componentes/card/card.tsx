@@ -31,6 +31,8 @@ export const Card = ({titulo,imagenUrl='',footer,type,label,status,titleBadge,ic
                 <Image
                 src={imagenUrl}
                 alt={titulo}
+                width={70}
+                height={70}
                 />
                 <MiButton
                     leftIcon ='⚙️'

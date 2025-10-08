@@ -9,7 +9,9 @@ import {Card} from '@/componentes/card/card';
 //import ilustracion from '@/imagenes/ilustracion.png'
 import { MiButton } from '@/componentes/button/button';
 import { dataProperties } from '../../dto/properties';
-import { getProperties } from '@/services/properties';
+
+import { div } from 'framer-motion/client';
+import { getProperties } from '@/services/api.properties';
 
 
 const Dashboard = () => {
@@ -21,6 +23,7 @@ const Dashboard = () => {
     const fetchData = async () => {
         const response = await getProperties();
         setDataProperties(response)
+        console.log(response)
         
     }
     fetchData()
@@ -38,6 +41,28 @@ const Dashboard = () => {
     <div className='card-container'>
 
     </div>
+    {dataProperties.ok && (
+      <div className='contenedor'>
+        {dataProperties.data.map((property)=>(
+          <div key={property._id}>
+            <Card 
+            titulo={property.name}
+            imagenUrl={property.img}
+            label={`${property.value}`}
+            type='white'
+            funcion1={()=>{}}
+            funcion2={()=>{}}
+            titleBadge=''
+
+
+            />
+
+          </div>
+        ))}
+
+      </div>
+      
+    )}
     <MiButton
     variant='primary'
     textButton='Ir Atras'

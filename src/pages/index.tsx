@@ -1,10 +1,9 @@
 // iniciamos el index haciendo todas impoprtaciones necesarias para la funcionalidad requerida ejemplo(hooks, funciones, interfaces, arrays, componentes)
 // iniciamos importando hooks y componentes siempre con {}
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, } from 'react-toastify'
 import { MiButton } from "@/componentes/button/button"; // aqui importaos el componente Mibutton para utilizarlo 
-
 //importranmos los arrays [] listas
 import { users } from "@/utils/usuario";
 import { notificacion } from "@/helpers/utils";
@@ -47,36 +46,76 @@ export default function Login() {
       }
   }
   
-
-
   const router = useRouter(); // ahora creamos la variable para la ruta, recuerda que los hooks los llamamos con ()
   console.log(router);
+  // 
+
+  
   return (
     <>
-    <div className="container">
-      <div className="card">
-      <label htmlFor="">
-      <h1> Bienvenido a My App </h1>
-      <h3> Registrate</h3>
-      </label>
-      {/* //labeles para colocar un texto antes de un input */}
-      <label> Ingresa tu usuario </label>
-      <input type="text" onChange={manejoUsuario}/>
-      <label> Ingrese contreseña</label>
-      <input type="password" onChange={manejoPassword} />
-      
-
-      <MiButton
-       textButton="Ingresar"
-       click={validacion}
-       variant="secondary"
-       size="md"
-       />
-      <ToastContainer />
-
-      </div>
-    </div>
-
+      <main className="login-wrapper">
+        <section
+          className="login-card"
+          role="form"
+          aria-labelledby="login-title"
+        >
+          <header className="login-header">
+            <h1 id="login-title">¡Hola de nuevo!</h1>
+            <p className="login-subtitle">Bienvenido a My App</p>
+          </header>
+  
+          {/* Campo: usuario */}
+          <label htmlFor="login-usuario" className="login-label">
+            Ingresa tu usuario
+          </label>
+          <div className="login-input-group">
+            <span className="login-icon" aria-hidden="true">✉️</span>
+            <input
+              id="login-usuario"
+              type="text"
+              placeholder="Email o usuario"
+              onChange={manejoUsuario}
+              autoComplete="username"
+              className="login-input"
+              required
+            />
+          </div>
+  
+          {/* Campo: contraseña */}
+          <label htmlFor="login-password" className="login-label">
+            Ingresa contraseña
+          </label>
+          <div className="login-input-group">
+            <span className="login-icon" aria-hidden="true">🔒</span>
+            <input
+              id="login-password"
+              type="password"
+              placeholder="••••••••"
+              onChange={manejoPassword}
+              autoComplete="current-password"
+              className="login-input"
+              required
+            />
+          </div>
+  
+          {/* Botón de acción (no cambio tu lógica) */}
+          <div className="login-actions">
+            <MiButton
+              textButton="Ingresar"
+              click={validacion}
+              variant="secondary"
+              size="md"
+            />
+          </div>
+  
+          <a href="#recuperar" className="login-forgot">
+            ¿Olvidaste tu contraseña?
+          </a>
+  
+          <ToastContainer />
+        </section>
+      </main>
     </>
   );
+  
 }

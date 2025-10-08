@@ -11,11 +11,15 @@
     "test:ci": "jest --coverage"
   },
   "dependencies": {
+    "@heroui/react": "^2.8.5",
+    "axios": "^1.12.2",
+    "framer-motion": "^12.23.22",
     "mongoose": "^8.18.3",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -4,6 +4,13 @@
 @import "./components/badge.css";
 @import "./components/button.css";
 @import "./components/card.css";
+@import "tailwindcss";
+@plugin './hero.ts';
+/* Note: You may need to change the path to fit your project structure /
+@source '../../node_modules/@heroui/theme/dist/**/
+@custom-variant dark (&:is(.dark *));
+
+
 
 
 
