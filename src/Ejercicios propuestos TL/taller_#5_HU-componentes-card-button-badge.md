@@ -17,7 +17,8 @@ Debe representar un botón reutilizable para acciones en la aplicación.
 - `loading?: boolean` – muestra un estado de carga y bloquea clicks.  
 - `onClick?: () => void` – acción al hacer clic.  
 - `leftIcon?: React.ReactNode` – ícono opcional antes del texto.  gggggg
-- `rightIcon?: React.ReactNode` – ícono opcional después del texto.  
+- `rightIcon?: React.ReactNode` – ícono opcional después del texto.  ...
+
 - `text: string` – contenido/etiqueta del botón.d
 
 > El `Button` debe usarse en el ejemplo final, por ejemplo como un botón de acción en la `Card`.
